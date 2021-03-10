@@ -32,11 +32,27 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-react-app": "^6.0.0",
     "gatsby-plugin-eslint": "^3.0.0",
+    "husky": "=4",
+    "lint-staged": ">=10",
     "prettier": "2.2.1"
   },
   "license": "0BSD",
   "volta": {
     "node": "14.16.0",
     "yarn": "1.22.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(js|json|jsx)": [
+      "prettier --write",
+      "prettier --list-different"
+    ],
+    "*.(js|jsx)": [
+      "eslint"
+    ]
   }
 }
