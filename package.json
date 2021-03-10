@@ -4,11 +4,12 @@
   "description": "The Exam House's website and blog built on Gatsby",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "lint": "eslint . --ignore-path .gitignore",
     "prettier": "prettier . --ignore-path .gitignore",
     "check-format": "yarn prettier --list-different",
     "format": "yarn prettier --write",
+    "validate": "yarn lint && yarn format && yarn check-format && yarn build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
@@ -28,6 +29,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-react-app": "^6.0.0",
