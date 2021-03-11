@@ -206,7 +206,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    max-width: 55ch;
+    max-width: 65ch;
     margin-block-end: 2.4rem;
   }
 `;

@@ -3,6 +3,18 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    contactInfo: {
+      phone: '02071128105',
+      email: 'Exams@theexamhouse.co.uk',
+      address: 'BYT Tuition Centre, 128 Chesham High Street, Buckinghamshire HP5 1EB NCN Centre number 52230',
+    },
+    socialMedia: {
+      linkedin: 'https://www.linkedin.com/company/the-exam-house/',
+    },
+    links: {
+      privateCandidateAssessedGrades:
+        'https://www.eventbrite.co.uk/e/private-candidate-centre-assessed-grades-tickets-135532813293',
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

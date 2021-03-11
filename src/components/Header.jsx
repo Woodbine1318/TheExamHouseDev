@@ -1,55 +1,77 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import FeatherIcon from 'feather-icons-react';
 import styled from 'styled-components';
 
-const Header = () => (
-  <StyledHeader>
-    <nav aria-label="Primary Navigation">
-      <Logo aria-label="Go to home page">The Exam House</Logo>
+const Header = () => {
+  const {
+    site: {
+      siteMetadata: { socialMedia },
+    },
+  } = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          socialMedia {
+            linkedin
+          }
+        }
+      }
+    }
+  `);
 
-      <CompactNavigation>
-        <Link to="/search" aria-label="Search">
-          <FeatherIcon icon="search" aria-hidden />
-        </Link>
+  return (
+    <StyledHeader>
+      <nav aria-label="Primary Navigation">
+        <Logo aria-label="Go to home page">The Exam House</Logo>
 
-        <MobileMenu>
-          <summary aria-label="Same site links">
-            <FeatherIcon icon="menu" className="open-btn" aria-hidden />
-            <FeatherIcon icon="x" className="close-btn" aria-hidden />
-          </summary>
+        <CompactNavigation>
+          <Link to="/search" aria-label="Search">
+            <FeatherIcon icon="search" aria-hidden />
+          </Link>
 
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">GCSE & A level Exam Centre, Access Arrangements & Private Candidates</Link>
-              </li>
-            </ul>
-          </nav>
-        </MobileMenu>
-      </CompactNavigation>
+          <MobileMenu>
+            <summary aria-label="Same site links">
+              <FeatherIcon icon="menu" className="open-btn" aria-hidden />
+              <FeatherIcon icon="x" className="close-btn" aria-hidden />
+            </summary>
 
-      <ExtendedNavigation>
-        <li>
-          <Link to="/">GCSE & A level Exam Centre, Access Arrangements & Private Candidates</Link>
-        </li>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">
+                    <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A level Exam Centre, Access
+                    Arrangements & Private Candidates
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </MobileMenu>
+        </CompactNavigation>
 
-        <li>GCSE & A level Exams Centre, Including Private Candidates</li>
+        <ExtendedNavigation>
+          <li>
+            <Link to="/">
+              <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A level Exam Centre, Access
+              Arrangements & Private Candidates
+            </Link>
+          </li>
 
-        <li>
-          <a
-            href="https://www.linkedin.com/company/30092517/admin/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Linkedin"
-          >
-            <FeatherIcon icon="linkedin" aria-hidden />
-          </a>
-        </li>
-      </ExtendedNavigation>
-    </nav>
-  </StyledHeader>
-);
+          <li>
+            <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A level Exams Centre, Including
+            Private Candidates
+          </li>
+
+          <li>
+            <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
+              <FeatherIcon icon="linkedin" aria-hidden />
+            </a>
+          </li>
+        </ExtendedNavigation>
+      </nav>
+    </StyledHeader>
+  );
+};
 
 export default Header;
 
