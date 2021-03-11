@@ -16,6 +16,7 @@
   "dependencies": {
     "@fontsource/rubik": "^4.2.2",
     "babel-plugin-styled-components": "^1.12.0",
+    "feather-icons-react": "^0.4.3",
     "gatsby": "^3.0.1",
     "gatsby-plugin-gatsby-cloud": "^2.0.0",
     "gatsby-plugin-image": "^1.0.0",

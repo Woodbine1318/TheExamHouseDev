@@ -6,12 +6,18 @@ export const GlobalStyles = createGlobalStyle`
     --color-white: #ffffff;
     --color-gray: #1d1d1d;
     --color-grey: #1d1d1d;
+    --color-cyan: #08c3fd;
 
     --color-background: var(--color-white);
     --color-text: var(--color-gray);
 
-    --font-body: 'Times New Roman', serif;
-    --font-display: 'Rubik', sans-serif;
+    --font-times: 'Times New Roman', serif;
+    --font-rubik: 'Rubik', sans-serif;
+    --font-body: var(--font-rubik);
+    --font-display: var(--font-rubik);
+
+    --z-index-menu: 5;
+    --z-index-menu-close: 10;
   }
 
   html,
