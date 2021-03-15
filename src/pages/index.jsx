@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import ContentWrapper from '../components/styles/ContentWrapper';
 
 const IndexPage = ({
   data: {
@@ -15,9 +16,9 @@ const IndexPage = ({
   },
 }) => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="GCSE & A Level Exam Centre" />
 
-    <Container>
+    <ContentWrapper>
       <p>
         Telephone:&nbsp;
         <a href={`tel:${contactInfo.phone}`} aria-label="Call us">
@@ -44,7 +45,7 @@ const IndexPage = ({
         &nbsp; or pupils and private candidates. Including access arrangements. Alongside our exam tutors.
       </p>
 
-      <ul>
+      <ul className="list-bare">
         <li>
           AQA <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A Level exam centre
         </li>
@@ -137,7 +138,7 @@ const IndexPage = ({
       </p>
 
       <nav>
-        <ul>
+        <ul className="list-bare">
           <li>
             <Link to="/fast-gcse-courses">
               Fast <abbr title="General Certificate of Secondary Education">GCSE</abbr> Courses
@@ -205,7 +206,7 @@ const IndexPage = ({
         <StaticImage src="../images/cambridge-asessment.png" alt="Cambridge Assessment International Education" />
       </ImageGrid>
 
-      <ul>
+      <ul className="list-bare">
         <li>
           <abbr title="Assessment and Qualifications Alliance">AQA</abbr> exam centre
         </li>
@@ -224,7 +225,7 @@ const IndexPage = ({
         <StaticImage src="../images/ukrlp.png" alt="UK Register of Learning Providers" />
         <StaticImage src="../images/ucas.png" alt="UCAS" />
       </ImageGrid>
-    </Container>
+    </ContentWrapper>
   </Layout>
 );
 
@@ -275,26 +276,6 @@ export const query = graphql`
 `;
 
 // STYLES
-
-const Container = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-
-  & > .gatsby-image-wrapper {
-    align-self: center;
-    margin: 8rem auto;
-  }
-
-  & ul {
-    list-style-type: none;
-  }
-
-  & a {
-    text-decoration: underline;
-    text-decoration-color: var(--color-cyan);
-    text-decoration-thickness: 2px;
-  }
-`;
 
 const HalfColumns = styled.div`
   display: grid;
