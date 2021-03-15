@@ -23,7 +23,9 @@ const Header = () => {
   return (
     <StyledHeader>
       <nav aria-label="Primary Navigation">
-        <Logo aria-label="Go to home page">The Exam House</Logo>
+        <Logo to="/" aria-label="Go to home page">
+          The Exam House
+        </Logo>
 
         <CompactNavigation>
           <Link to="/search" aria-label="Search">

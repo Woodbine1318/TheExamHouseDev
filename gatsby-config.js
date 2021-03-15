@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `The Exam House`,
+    description: `GCSE & A level Exam Centre for AQA, Edexcel, OCR & Cambridge International. Including Private Candidates for Home educated, excluded or adult learners.`,
+    author: `The Exam House`,
+    siteUrl: 'https://theexamhouse.co.uk',
     contactInfo: {
       phone: '02071128105',
       email: 'Exams@theexamhouse.co.uk',
