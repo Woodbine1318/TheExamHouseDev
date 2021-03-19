@@ -1,7 +1,33 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+exports.createPages = async ({ actions, graphql }) => {
+  const {
+    data: { allContentfulBlogPost: posts },
+  } = await graphql(`
+    query PaginatedBlogPosts {
+      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+        totalCount
+        edges {
+          node {
+            id
+            slug
+          }
+          next {
+            slug
+            title
+          }
+          previous {
+            slug
+            title
+          }
+        }
+      }
+    }
+  `);
 
-// You can delete this file if you're not using it
+  posts.edges.forEach(({ node, next, previous }) => {
+    actions.createPage({
+      path: `/blog/${node.slug}`,
+      component: require.resolve('./src/templates/blog-post.jsx'),
+      context: { id: node.id, next, previous },
+    });
+  });
+};

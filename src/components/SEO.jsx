@@ -42,13 +42,13 @@ const SEO = ({ description, lang, canonicalPath, title, og }) => {
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:locale" content="en_GB" />
 
-      {!isArticleScheme ? null : (
-        <>
-          <meta property="article:published_time" content={new Date(og.published_time).toISOString()} />
-          <meta property="article:author" content={metadata.author} />
-          {og.tags ? og.tags.map((t, i) => <meta property="og:tag" content={t} key={`tag-${t}-${i}`} />) : null}
-        </>
-      )}
+      {isArticleScheme ? (
+        <meta property="article:published_time" content={new Date(og.published_time).toISOString()} />
+      ) : null}
+      {isArticleScheme ? <meta property="article:author" content={metadata.author} /> : null}
+      {isArticleScheme && og.tags
+        ? og.tags.map((t, i) => <meta property="og:tag" content={t} key={`tag-${t}-${i}`} />)
+        : null}
 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title || metadata.title} />

@@ -9,6 +9,7 @@ module.exports = {
     description: `GCSE & A level Exam Centre for AQA, Edexcel, OCR & Cambridge International. Including Private Candidates for Home educated, excluded or adult learners.`,
     author: `The Exam House`,
     siteUrl: 'https://theexamhouse.co.uk',
+    siteDomain: 'theexamhouse.co.uk',
     contactInfo: {
       phone: '02071128105',
       email: 'Exams@theexamhouse.co.uk',
