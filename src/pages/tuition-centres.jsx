@@ -12,7 +12,7 @@ const TuitionCentresPage = () => (
       description="The Exam House and our tuition centres are focused on delivery quality GCSE & A level exam training by our Exam Tutors."
     />
 
-    <Container>
+    <Content>
       <h1>Our Tuition Centres</h1>
 
       <nav aria-label="Tuition centres">
@@ -69,13 +69,13 @@ const TuitionCentresPage = () => (
         <li>Edexcel exam centre</li>
         <li>OCR exam centre</li>
       </ul>
-    </Container>
+    </Content>
   </Layout>
 );
 
 export default TuitionCentresPage;
 
-const Container = styled(ContentWrapper)`
+const Content = styled(ContentWrapper)`
   & nav {
     margin-bottom: 4rem;
   }

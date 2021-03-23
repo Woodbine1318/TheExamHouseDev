@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import ContentWrapper from '../components/styles/ContentWrapper';
 import PostShareButtons from '../components/PostShareButtons';
 import RichTextRenderer from '../components/RichTextRenderer';
+import ContentWrapper from '../components/styles/ContentWrapper';
 
 const ContentfulBlogPost = ({
   pageContext: { next, previous },
@@ -134,9 +134,7 @@ export const query = graphql`
 `;
 
 const Wrapper = styled(ContentWrapper)`
-  max-width: 65ch;
   min-height: 65vh;
-  margin: 0 auto;
 `;
 
 const PostMetadata = styled.address`

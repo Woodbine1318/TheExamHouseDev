@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Container = styled.nav`
+const StyledNav = styled.nav`
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -42,7 +42,7 @@ const PostShareButtons = ({ canonicalUrl, title, summary }) => {
   const encodedSummary = encodeURIComponent(summary);
 
   return (
-    <Container>
+    <StyledNav>
       <ul>
         <li>
           <a
@@ -87,7 +87,7 @@ const PostShareButtons = ({ canonicalUrl, title, summary }) => {
           </a>
         </li>
       </ul>
-    </Container>
+    </StyledNav>
   );
 };
 
