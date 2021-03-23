@@ -120,7 +120,7 @@ export const query = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData(layout: CONSTRAINED, width: 600)
+            gatsbyImageData(layout: CONSTRAINED, width: 800)
           }
           ... on ContentfulVideoEmbed {
             contentful_id
