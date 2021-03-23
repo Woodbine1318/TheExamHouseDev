@@ -10,6 +10,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import ContentWrapper from '../components/styles/ContentWrapper';
 import PostShareButtons from '../components/PostShareButtons';
+import youtubeEmbedUrl from '../utils/youtubeEmbedUrl';
 
 const options = (domain) => ({
   renderNode: {
@@ -29,6 +30,22 @@ const options = (domain) => ({
         <GatsbyImage image={target.gatsbyImageData} alt="" />
       </>
     ),
+    [INLINES.EMBEDDED_ENTRY]: ({ data: { target } }) => {
+      const youtubeEmbed = youtubeEmbedUrl(target.url);
+
+      if (youtubeEmbed)
+        return (
+          <IFrameWrapper>
+            <iframe src={youtubeEmbed} title={target.title} />
+          </IFrameWrapper>
+        );
+
+      return (
+        <a href={target.url} target="_blank" rel="noreferrer">
+          target.url
+        </a>
+      );
+    },
   },
 });
 
@@ -147,6 +164,11 @@ export const query = graphql`
             __typename
             gatsbyImageData(layout: CONSTRAINED, width: 600)
           }
+          ... on ContentfulVideoEmbed {
+            contentful_id
+            __typename
+            url
+          }
         }
       }
     }
@@ -195,5 +217,24 @@ const PaginationLink = styled(Link)`
 
   & span {
     font-size: 2.2rem;
+  }
+`;
+
+// This must be a span since inline embeds are rendered within p
+// and div cannot be descendent of p
+const IFrameWrapper = styled.span`
+  position: relative;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  padding-bottom: 56.25%;
+
+  & iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 `;
