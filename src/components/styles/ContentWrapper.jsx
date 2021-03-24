@@ -1,33 +1,20 @@
 import styled from 'styled-components';
 
 const ContentWrapper = styled.div`
-  & h1,
-  & h2,
-  & h3,
-  & h4,
-  & h5,
-  & h6 {
-    margin-bottom: 2.4rem;
-  }
-
-  & > h1,
-  & > h2,
-  & > h3,
-  & > h4,
-  & > h5,
-  & > h6,
-  & > p,
-  & > ul,
-  & > li,
-  & > a,
-  & > span,
-  & > address,
-  & > pre,
-  & > blockquote,
-  & > nav {
-    width: min(100%, 65ch);
+  & > *:not(.gatsby-image-wrapper) {
+    width: 100%;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  & p + h2,
+  & p + h3,
+  & p + h4,
+  & p + h5,
+  & p + h6 {
+    margin-top: 2em;
+    margin-bottom: 0.4em;
   }
 
   & > .gatsby-image-wrapper {

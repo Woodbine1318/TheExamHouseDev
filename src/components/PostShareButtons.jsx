@@ -8,7 +8,7 @@ const StyledNav = styled.nav`
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  margin: 4rem auto;
+  margin: 12rem auto 0;
 
   ul {
     list-style-type: none;

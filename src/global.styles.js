@@ -206,7 +206,53 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    max-width: 65ch;
+    max-width: 75ch;
     margin-block-end: 2.4rem;
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-weight: bold;
+    margin-bottom: 3.2rem;
+  }
+
+  & h1 {
+    font-size: 4rem;
+  }
+
+  & h2 {
+    font-size: 3.6rem;
+  }
+
+  & h3 {
+    font-size: 3.2rem;
+  }
+
+  & h4 {
+    font-size: 2.6rem;
+  }
+
+  & h5 {
+    font-size: 2.2rem;
+  }
+
+  & h6 {
+    font-size: 1.8rem;
+  }
+
+  & ul,
+  & ol,
+  & dl {
+    list-style-position: outside;
+    padding-left: 2.4rem;
+
+    & li {
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+    }
   }
 `;
