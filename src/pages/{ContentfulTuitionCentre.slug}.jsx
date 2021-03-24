@@ -51,7 +51,6 @@ ContentfulTuitionCentre.propTypes = {
       summary: PropTypes.shape({
         text: PropTypes.string.isRequired,
       }).isRequired,
-      publishedDate: PropTypes.string.isRequired,
       address: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
       content: PropTypes.shape({
@@ -83,7 +82,6 @@ export const query = graphql`
       }
       address
       phone
-      publishedDate: createdAt
       content {
         raw
         references {
