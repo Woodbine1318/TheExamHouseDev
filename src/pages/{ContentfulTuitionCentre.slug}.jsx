@@ -92,11 +92,6 @@ export const query = graphql`
             __typename
             gatsbyImageData(layout: CONSTRAINED, width: 800)
           }
-          ... on ContentfulVideoEmbed {
-            contentful_id
-            __typename
-            url
-          }
         }
       }
     }
