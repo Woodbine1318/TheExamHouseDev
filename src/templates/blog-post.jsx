@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
@@ -8,6 +8,7 @@ import SEO from '../components/SEO';
 import PostShareButtons from '../components/PostShareButtons';
 import RichTextRenderer from '../components/RichTextRenderer';
 import ContentWrapper from '../components/styles/ContentWrapper';
+import { PaginationNav, PaginationLink } from '../components/styles/PaginationNav';
 
 const ContentfulBlogPost = ({
   pageContext: { next, previous },
@@ -141,37 +142,4 @@ const PostMetadata = styled.address`
   font-size: 1.6rem;
   text-align: center;
   margin: 0 auto 0.8rem;
-`;
-
-const PaginationNav = styled.nav`
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  padding: 8rem 0 2.4rem;
-  gap: 4rem;
-
-  & div:last-of-type {
-    text-align: right;
-  }
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, minmax(20rem, 32rem));
-    justify-content: space-between;
-    gap: 2.4rem;
-  }
-`;
-
-const PaginationLink = styled(Link)`
-  display: flex;
-  flex-flow: column nowrap;
-
-  & small {
-    font-size: 1.2rem;
-    color: var(--color-gray);
-    text-transform: uppercase;
-  }
-
-  & span {
-    font-size: 2.2rem;
-  }
 `;
