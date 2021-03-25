@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
@@ -11,7 +12,7 @@ import youtubeEmbedUrl from '../utils/youtubeEmbedUrl';
 const richTextConfig = (siteDomain) => ({
   renderNode: {
     [INLINES.HYPERLINK]: ({ data }, children) => {
-      if (data.uri.includes(siteDomain)) {
+      if (data.uri.includes(siteDomain) && !data.uri.includes('mailto')) {
         const start = data.uri.indexOf(siteDomain);
         const end = start + siteDomain.length;
         const url = data.uri.slice(end);
@@ -26,6 +27,25 @@ const richTextConfig = (siteDomain) => ({
         <GatsbyImage image={target.gatsbyImageData} alt="" />
       </>
     ),
+    [BLOCKS.EMBEDDED_ENTRY]: ({ data: { target } }) => {
+      if (['ContentfulTuitionCentre', 'ContentfulStandalonePage'].includes(target.__typename)) {
+        return (
+          <p>
+            <Link to={`/${target.slug}`}>{target.name}</Link>
+          </p>
+        );
+      }
+
+      if (target.__typename === 'ContentfulBlogPost') {
+        return (
+          <p>
+            <Link to={`/blog/${target.slug}`}>{target.name}</Link>
+          </p>
+        );
+      }
+
+      return null;
+    },
     [INLINES.EMBEDDED_ENTRY]: ({ data: { target } }) => {
       const youtubeEmbed = youtubeEmbedUrl(target.url);
 

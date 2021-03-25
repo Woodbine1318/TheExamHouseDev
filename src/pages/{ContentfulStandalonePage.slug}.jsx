@@ -47,6 +47,13 @@ export const query = graphql`
       content {
         raw
         references {
+          ... on ContentfulTuitionCentre {
+            contentful_id
+            __typename
+            id
+            name
+            slug
+          }
           ... on ContentfulAsset {
             contentful_id
             __typename
