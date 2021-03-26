@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const SEO = ({ description, lang, canonicalPath, title, og }) => {
+const SEO = ({ description, lang, image, canonicalPath, title, og }) => {
   const {
     site: { siteMetadata: metadata },
   } = useStaticQuery(
@@ -39,6 +39,10 @@ const SEO = ({ description, lang, canonicalPath, title, og }) => {
       <meta property="og:site_name" content={metadata.title} />
       <meta property="og:title" content={title || metadata.title} />
       <meta property="og:description" content={description || metadata.description} />
+      <meta property="og:image" content={`${metadata.siteUrl}/social-card-large.png`} />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:locale" content="en_GB" />
 
@@ -54,6 +58,7 @@ const SEO = ({ description, lang, canonicalPath, title, og }) => {
       <meta name="twitter:title" content={title || metadata.title} />
       <meta name="twitter:creator" content={metadata.author} />
       <meta name="twitter:description" content={description || metadata.description} />
+      <meta name="twitter:image" content={`${metadata.siteUrl}${image}`} />
       <meta name="twitter:url" content={canonicalUrl} />
     </Helmet>
   );
@@ -64,6 +69,7 @@ SEO.propTypes = {
   canonicalPath: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  image: PropTypes.string,
   og: PropTypes.shape({
     type: PropTypes.oneOf(['website', 'article']),
     published_time: PropTypes.string,
@@ -75,6 +81,7 @@ SEO.defaultProps = {
   lang: 'en',
   canonicalPath: '',
   description: '',
+  image: '/social-card.png',
   og: { type: 'website' },
 };
 
