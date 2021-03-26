@@ -58,5 +58,53 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) =>
+              allContentfulBlogPost.edges.map(({ node: post }) => ({
+                title: post.title,
+                date: post.publishedDate,
+                description: post.summary.text,
+                url: `${site.siteMetadata.siteUrl}/${post.slug}`,
+                guid: `${site.siteMetadata.siteUrl}/${post.slug}`,
+              })),
+            query: `
+              {
+                allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      summary {
+                        text: summary
+                      }
+                      publishedDate
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'The Exam House Blog',
+          },
+        ],
+      },
+    },
   ],
 };
