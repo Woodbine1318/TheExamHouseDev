@@ -61,6 +61,8 @@ const richTextConfig = (siteDomain) => ({
       return null;
     },
     [INLINES.EMBEDDED_ENTRY]: ({ data: { target } }) => {
+      if (!target) return null;
+
       if (['ContentfulTuitionCentre', 'ContentfulStandalonePage'].includes(target.__typename)) {
         return (
           <>

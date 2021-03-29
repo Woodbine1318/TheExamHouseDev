@@ -20,7 +20,7 @@ const ContentfulBlogPost = ({
   <Layout>
     <SEO
       title={post.title}
-      description={post.summary.text}
+      description={post.summary?.text}
       canonicalPath={`/blog/${post.slug}`}
       og={{ type: 'article', published_time: post.publishedDate, tags: post.tags || [] }}
     />
@@ -33,7 +33,7 @@ const ContentfulBlogPost = ({
 
       <RichTextRenderer richText={post.content} />
 
-      <PostShareButtons canonicalUrl={post.slug} title={post.title} summary={post.summary.text} />
+      <PostShareButtons canonicalUrl={post.slug} title={post.title} summary={post.summary?.text} />
     </Wrapper>
 
     <PaginationNav>

@@ -80,7 +80,7 @@ module.exports = {
               allContentfulBlogPost.edges.map(({ node: post }) => ({
                 title: post.title,
                 date: post.publishedDate,
-                description: post.summary.text,
+                description: post.summary ? post.summary.text : '',
                 url: `${site.siteMetadata.siteUrl}/${post.slug}`,
                 guid: `${site.siteMetadata.siteUrl}/${post.slug}`,
               })),
