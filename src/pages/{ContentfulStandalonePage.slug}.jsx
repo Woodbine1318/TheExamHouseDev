@@ -48,16 +48,29 @@ export const query = graphql`
         raw
         references {
           ... on ContentfulTuitionCentre {
-            contentful_id
             __typename
+            contentful_id
             id
             name
             slug
           }
-          ... on ContentfulAsset {
-            contentful_id
+          ... on ContentfulBlogPost {
             __typename
-            gatsbyImageData(layout: CONSTRAINED, width: 800)
+            contentful_id
+            id
+            slug
+            title
+          }
+          ... on ContentfulAsset {
+            __typename
+            contentful_id
+            id
+            title
+            gatsbyImageData(layout: CONSTRAINED, width: 600)
+            file {
+              contentType
+              url
+            }
           }
         }
       }

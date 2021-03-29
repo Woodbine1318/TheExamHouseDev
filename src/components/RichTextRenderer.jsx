@@ -22,11 +22,25 @@ const richTextConfig = (siteDomain) => ({
 
       return <a href={data.uri}>{children}</a>;
     },
-    [BLOCKS.EMBEDDED_ASSET]: ({ data: { target } }) => (
-      <>
-        <GatsbyImage image={target.gatsbyImageData} alt="" />
-      </>
-    ),
+    [BLOCKS.EMBEDDED_ASSET]: ({ data: { target } }) => {
+      if (target.gatsbyImageData)
+        return (
+          <>
+            <GatsbyImage image={target.gatsbyImageData} alt="" />
+          </>
+        );
+
+      if (target.file && target.file.contentType === 'application/pdf')
+        return (
+          <p>
+            <a href={target.file.url} download>
+              {target.title}
+            </a>
+          </p>
+        );
+
+      return null;
+    },
     [BLOCKS.EMBEDDED_ENTRY]: ({ data: { target } }) => {
       if (['ContentfulTuitionCentre', 'ContentfulStandalonePage'].includes(target.__typename)) {
         return (
@@ -47,6 +61,22 @@ const richTextConfig = (siteDomain) => ({
       return null;
     },
     [INLINES.EMBEDDED_ENTRY]: ({ data: { target } }) => {
+      if (['ContentfulTuitionCentre', 'ContentfulStandalonePage'].includes(target.__typename)) {
+        return (
+          <>
+            <Link to={`/${target.slug}`}>{target.name}</Link>
+          </>
+        );
+      }
+
+      if (target.__typename === 'ContentfulBlogPost') {
+        return (
+          <>
+            <Link to={`/blog/${target.slug}`}>{target.title}</Link>
+          </>
+        );
+      }
+
       const youtubeEmbed = youtubeEmbedUrl(target.url);
 
       if (youtubeEmbed)
@@ -58,7 +88,7 @@ const richTextConfig = (siteDomain) => ({
 
       return (
         <a href={target.url} target="_blank" rel="noreferrer">
-          target.url
+          {target.title || target.url}
         </a>
       );
     },
