@@ -30,10 +30,13 @@ const IndexPage = ({
     <p>Your Private Candidate Exam Centre</p>
 
     <ImageGrid>
-      <StaticImage src="../images/ocr.png" alt="OCR" />
-      <StaticImage src="../images/edexcel-full.png" alt="Edexcel Approved Centre" />
-      <StaticImage src="../images/cambridge-asessment.png" alt="Cambridge Assesment International Education" />
-      <StaticImage src="../images/aqa.png" alt="AQA" />
+      <StaticImage src="../images/OCR+Exam+Centre+Tutors+and+Exams.png" alt="OCR Exam Centre Tutors and Exams" />
+      <StaticImage src="../images/edexcel+exam+centres.png" alt="edexcel exam centres" />
+      <StaticImage
+        src="../images/Cambridge+International+Exam+Centre.png"
+        alt="Cambridge International Exam Centre tutors and exams"
+      />
+      <StaticImage src="../images/AQA+Exam+centre.png" alt="AQA Exam Centre tutors and exams" />
     </ImageGrid>
 
     <p>
@@ -65,7 +68,7 @@ const IndexPage = ({
       <li>Centre Assessed Grades</li>
     </ul>
 
-    <StaticImage src="../images/acca.png" alt="ACCA Think Ahead" width={320} />
+    <StaticImage src="../images/AQA+Exam+centre.png" alt="Acca Exam Centre" width={320} />
 
     <h2>
       Exam Tutors for our fast <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A level courses
@@ -81,7 +84,10 @@ const IndexPage = ({
     <address>{contactInfo.address}</address>
 
     <HalfColumns>
-      <StaticImage src="../images/teacher-and-student.jpg" alt="" />
+      <StaticImage
+        src="../images/Exam+House+Private+Candidate+Exam+centre.jpg"
+        alt="Exam house private candidate exam centre"
+      />
 
       <div>
         <h2>
@@ -101,14 +107,18 @@ const IndexPage = ({
       Our Q and A for <a href={links.privateCandidateAssessedGrades}>private candidates and centre assessed grades</a>
     </h2>
 
-    <StaticImage src="../images/calendar.jpg" alt="" width={300} />
+    <StaticImage
+      src="../images/Exam+Centre+Exam+House+tutors+and+exams.png"
+      alt="Exam Centre Exam House Tutors and Exams"
+      width={300}
+    />
 
     <h2>
       Our <Link to="/tuition-centres">Tuition & Exam Centres</Link>
     </h2>
 
     <HalfColumns>
-      <StaticImage src="../images/exams.png" alt="" />
+      <StaticImage src="../images/Exams.jpg" alt="Exams" />
 
       <div>
         <h2>Full exam services for pupils and candidates at our exam centre. </h2>
@@ -171,7 +181,7 @@ const IndexPage = ({
       </ul>
 
       <p>
-        A hort piece on <Link to="/blog/why-we-have-exams">why we have exams</Link>
+        A short piece on <Link to="/blog/why-we-have-exams">why we have exams</Link>
       </p>
       <p>
         Follow us on <a href={socialMedia.linkedin}>Linkedin</a>
@@ -188,7 +198,10 @@ const IndexPage = ({
     <p>Assessing the candidates outside the mainstream! #homeed #privatecandidates #distancelearning</p>
 
     <HalfColumns>
-      <StaticImage src="../images/bright-young-things.jpg" alt="" />
+      <StaticImage
+        src="../images/The+Exam+House+GCSE+&+A+level+Exam+Centre+for+Edexcel,+AQA,+OCR+and+Cambridge+International.jpg"
+        alt="The Exam House GCSE & A level Exam Centre for Edexcel, AQA, OCR and Cambridge International"
+      />
 
       <div>
         <h2>Quality Access Arrangements</h2>
@@ -200,8 +213,8 @@ const IndexPage = ({
     </HalfColumns>
 
     <ImageGrid column>
-      <StaticImage src="../images/edexcel.png" alt="EDEXCEL" />
-      <StaticImage src="../images/cambridge-asessment.png" alt="Cambridge Assessment International Education" />
+      <StaticImage src="../images/edexcel+exam+centres.png" alt="EDEXCEL" />
+      <StaticImage src="../images/Cambridge+International+Exam+Centre.png" alt="Cambridge International Exam Centre" />
     </ImageGrid>
 
     <ul className="list-bare">
@@ -219,9 +232,9 @@ const IndexPage = ({
     </ul>
 
     <ImageGrid column>
-      <StaticImage src="../images/aqa.png" alt="AQA" />
-      <StaticImage src="../images/ukrlp.png" alt="UK Register of Learning Providers" />
-      <StaticImage src="../images/ucas.png" alt="UCAS" />
+      <StaticImage src="../images/AQA+Exam+centre.png" alt="AQA Exam centre" />
+      <StaticImage src="../images/UKRLP+Exam+house.png" alt="UKRLP Exam house" />
+      <StaticImage src="../images/UCAS+Exam+House.png" alt="UCAS Exam House" />
     </ImageGrid>
   </Layout>
 );
