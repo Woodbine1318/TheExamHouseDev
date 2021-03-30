@@ -119,9 +119,15 @@ export const query = graphql`
         raw
         references {
           ... on ContentfulAsset {
-            contentful_id
             __typename
+            contentful_id
+            id
+            title
             gatsbyImageData(layout: CONSTRAINED, width: 800)
+            file {
+              contentType
+              url
+            }
           }
           ... on ContentfulVideoEmbed {
             contentful_id
