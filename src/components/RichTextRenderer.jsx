@@ -26,7 +26,7 @@ const richTextConfig = (siteDomain) => ({
       if (target.gatsbyImageData)
         return (
           <>
-            <GatsbyImage image={target.gatsbyImageData} alt="" />
+            <GatsbyImage image={target.gatsbyImageData} alt={target.title} objectFit="contain" />
           </>
         );
 
