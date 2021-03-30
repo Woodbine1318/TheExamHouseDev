@@ -6,7 +6,7 @@ const youtubeEmbedUrl = (originalUrl) => {
 
   // Share link
   if (originalUrl.includes('youtu.be')) {
-    const [videoId] = originalUrl.replace(/\/$/, '').split('/').reversed();
+    const [videoId] = originalUrl.replace(/\/$/, '').split('/').reverse();
 
     return `${embedTemplate}${videoId}`;
   }
