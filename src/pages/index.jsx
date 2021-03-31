@@ -68,7 +68,7 @@ const IndexPage = ({
       <li>Centre Assessed Grades</li>
     </ul>
 
-    <StaticImage src="../images/AQA+Exam+centre.png" alt="Acca Exam Centre" width={320} />
+    <StaticImage src="../images/Acca+Exam+Centre.png" alt="Acca Exam Centre" width={320} />
 
     <h2>
       Exam Tutors for our fast <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A level courses
