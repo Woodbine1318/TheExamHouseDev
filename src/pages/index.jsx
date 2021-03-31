@@ -103,10 +103,6 @@ const IndexPage = ({
       </div>
     </HalfColumns>
 
-    <h2>
-      Our Q and A for <a href={links.privateCandidateAssessedGrades}>private candidates and centre assessed grades</a>
-    </h2>
-
     <StaticImage
       src="../images/Exam+Centre+Exam+House+tutors+and+exams.png"
       alt="Exam Centre Exam House Tutors and Exams"
@@ -289,10 +285,30 @@ export const query = graphql`
 
 const HalfColumns = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 40% minmax(0, 1fr);
   align-items: center;
   gap: 3.2rem;
   margin: 8rem 0;
+
+  & h2 {
+    font-size: 1.6rem;
+  }
+
+  & p {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+
+    & h2 {
+      font-size: 3.6rem;
+    }
+
+    & p {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 const ImageGrid = styled.div`
