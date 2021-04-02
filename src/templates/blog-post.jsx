@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import PostShareButtons from '../components/PostShareButtons';
 import RichTextRenderer from '../components/RichTextRenderer';
 import ContentWrapper from '../components/styles/ContentWrapper';
 import { PaginationNav, PaginationLink } from '../components/styles/PaginationNav';
@@ -32,8 +31,6 @@ const ContentfulBlogPost = ({
       <h1 className="title">{post.title}</h1>
 
       <RichTextRenderer richText={post.content} />
-
-      <PostShareButtons canonicalUrl={post.slug} title={post.title} summary={post.summary?.text} />
     </Wrapper>
 
     <PaginationNav>
