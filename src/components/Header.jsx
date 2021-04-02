@@ -112,7 +112,7 @@ const CompactNavigation = styled.div`
   align-items: center;
   padding-top: 0.4rem;
 
-  & a {
+  & > a {
     display: flex;
     justify-content: center;
     align-items: center;
