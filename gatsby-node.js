@@ -1,3 +1,13 @@
+const path = require('path');
+const fs = require('fs');
+
+exports.onPostBuild = () => {
+  // if (fs.existsSync(path.join(__dirname), 'public/.well-known')) return;
+
+  fs.mkdirSync(path.join(__dirname, 'public/.well-known'));
+  fs.copyFileSync(path.join(__dirname, 'assetlinks.json'), path.join(__dirname, 'public/.well-known/assetlinks.json'));
+};
+
 exports.createPages = async ({ actions, graphql }) => {
   const {
     data: { allContentfulBlogPost: posts },

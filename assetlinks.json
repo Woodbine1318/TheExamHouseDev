@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uk.co.themexamhouse.pwa",
+      "sha256_cert_fingerprints": [
+        "AE:01:31:9B:D2:80:D4:63:4D:FD:36:F3:B2:BA:53:AA:06:94:05:C2:E6:EF:4E:86:DE:66:AC:E4:04:9D:F3:50"
+      ]
+    }
+  }
+]
