@@ -50,7 +50,7 @@ exports.createPages = async ({ actions, graphql }) => {
   Array.from({ length: totalPages }).forEach((_, i) => {
     const currentPage = i + 1;
     const isFirstPage = currentPage === 1;
-    const isLastPage = currentPage === totalPages.length;
+    const isLastPage = currentPage === totalPages;
     const nextPage = isLastPage ? null : `/blog/${currentPage + 1}`;
     const previousPage = isFirstPage ? null : `/blog${currentPage === 2 ? '' : `/${currentPage - 1}`}`;
 
@@ -59,6 +59,8 @@ exports.createPages = async ({ actions, graphql }) => {
       component: require.resolve('./src/templates/paginated-blog.jsx'),
       context: {
         postsPerPage,
+        currentPage,
+        totalPages,
         skip: i * postsPerPage,
         nextPage,
         previousPage,

@@ -1,39 +1,59 @@
-import { graphql, Link } from 'gatsby';
+/* eslint-disable react/no-array-index-key */
+import { graphql, Link, navigate } from 'gatsby';
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import { PaginationNav, PaginationLink } from '../components/styles/PaginationNav';
+import { PaginationNav, PaginationLink, PageSelector } from '../components/styles/PaginationNav';
 
-const PaginatedBlog = ({ pageContext: { previousPage, nextPage }, data: { allContentfulBlogPost: posts } }) => (
-  <Layout>
-    <SEO title="Exam Blog" />
+const PaginatedBlog = ({
+  pageContext: { previousPage, nextPage, totalPages, currentPage },
+  data: { allContentfulBlogPost: posts },
+}) => {
+  const handlePageSelection = (event) => {
+    navigate(event.target.value);
+  };
 
-    <StyledNav>
-      {posts.edges.map(({ node: post }) => (
-        <article key={post.id}>
-          <Link to={`/blog/${post.slug}`}>
-            <span>{post.title}</span>
-            <span>{post.summary?.text}</span>
-            <time dateTime={post.publishedDate || post.createdAt}>
-              {post.formattedPublishedDate || post.formattedCreatedAt}
-            </time>
-          </Link>
-        </article>
-      ))}
+  return (
+    <Layout>
+      <SEO title="Exam Blog" />
 
-      <PaginationNav as="div">
-        <div>{previousPage ? <PaginationLink to={previousPage}>Newer</PaginationLink> : null}</div>
+      <StyledNav>
+        {posts.edges.map(({ node: post }) => (
+          <article key={post.id}>
+            <Link to={`/blog/${post.slug}`}>
+              <span>{post.title}</span>
+              <span>{post.summary?.text}</span>
+              <time dateTime={post.publishedDate || post.createdAt}>
+                {post.formattedPublishedDate || post.formattedCreatedAt}
+              </time>
+            </Link>
+          </article>
+        ))}
 
-        <div>{nextPage ? <PaginationLink to={nextPage}>Older</PaginationLink> : null}</div>
-      </PaginationNav>
-    </StyledNav>
-  </Layout>
-);
+        <PaginationNav as="div">
+          <div>{previousPage ? <PaginationLink to={previousPage}>Newer</PaginationLink> : null}</div>
+
+          <PageSelector onChange={handlePageSelection} value={`/blog${currentPage === 1 ? '' : `/${currentPage}`}`}>
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <option value={`/blog${index === 0 ? '' : `/${index + 1}`}`} key={index}>
+                {index + 1}
+              </option>
+            ))}
+          </PageSelector>
+
+          <div>{nextPage ? <PaginationLink to={nextPage}>Older</PaginationLink> : null}</div>
+        </PaginationNav>
+      </StyledNav>
+    </Layout>
+  );
+};
 
 PaginatedBlog.propTypes = {
   pageContext: PropTypes.shape({
+    totalPages: PropTypes.number,
+    currentPage: PropTypes.number,
     previousPage: PropTypes.string,
     nextPage: PropTypes.string,
   }).isRequired,

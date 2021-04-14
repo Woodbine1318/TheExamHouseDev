@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const PaginationNav = styled.nav`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   padding: 8rem 0 2.4rem;
   gap: 4rem;
@@ -14,7 +14,7 @@ export const PaginationNav = styled.nav`
   }
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, minmax(20rem, 32rem));
+    grid-template-columns: repeat(3, minmax(20rem, 32rem));
     justify-content: space-between;
     gap: 2.4rem;
   }
@@ -33,4 +33,14 @@ export const PaginationLink = styled(Link)`
   & span {
     font-size: 2.2rem;
   }
+`;
+
+export const PageSelector = styled.select`
+  appearance: none;
+  width: min-content;
+  border: 2px solid var(--color-cyan);
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  text-align: center;
+  border-radius: 8px;
 `;
