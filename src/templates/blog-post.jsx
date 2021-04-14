@@ -21,12 +21,15 @@ const ContentfulBlogPost = ({
       title={post.title}
       description={post.summary?.text}
       canonicalPath={`/blog/${post.slug}`}
-      og={{ type: 'article', published_time: post.publishedDate, tags: post.tags || [] }}
+      og={{ type: 'article', published_time: post.publishedDate || post.createdAt, tags: post.tags || [] }}
     />
 
     <Wrapper>
       <PostMetadata>
-        {metadata.author} — <time dateTime={post.publishedDate}>{post.formattedPublishedDate}</time>
+        {metadata.author} —{' '}
+        <time dateTime={post.publishedDate || post.createdAt}>
+          {post.formattedPublishedDate || post.formattedCreatedAt}
+        </time>
       </PostMetadata>
       <h1 className="title">{post.title}</h1>
 
@@ -82,8 +85,10 @@ ContentfulBlogPost.propTypes = {
         text: PropTypes.string.isRequired,
       }).isRequired,
       tags: PropTypes.arrayOf(PropTypes.string),
-      publishedDate: PropTypes.string.isRequired,
-      formattedPublishedDate: PropTypes.string.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      formattedCreatedAt: PropTypes.string.isRequired,
+      publishedDate: PropTypes.string,
+      formattedPublishedDate: PropTypes.string,
       content: PropTypes.shape({
         raw: PropTypes.string.isRequired,
         references: PropTypes.arrayOf(PropTypes.object),
@@ -109,6 +114,8 @@ export const query = graphql`
         text: summary
       }
       tags
+      createdAt
+      formattedCreatedAt: createdAt(formatString: "MMMM DD, YYYY", locale: "en_GB")
       publishedDate
       formattedPublishedDate: publishedDate(formatString: "MMMM DD, YYYY", locale: "en_GB")
       id

@@ -16,7 +16,9 @@ const PaginatedBlog = ({ pageContext: { previousPage, nextPage }, data: { allCon
           <Link to={`/blog/${post.slug}`}>
             <span>{post.title}</span>
             <span>{post.summary?.text}</span>
-            <time dateTime={post.publishedDate}>{post.formattedPublishedDate}</time>
+            <time dateTime={post.publishedDate || post.createdAt}>
+              {post.formattedPublishedDate || post.formattedCreatedAt}
+            </time>
           </Link>
         </article>
       ))}
@@ -47,8 +49,10 @@ PaginatedBlog.propTypes = {
             summary: PropTypes.shape({
               text: PropTypes.string.isRequired,
             }).isRequired,
-            publishedDate: PropTypes.string.isRequired,
-            formattedPublishedDate: PropTypes.string.isRequired,
+            createdAt: PropTypes.string.isRequired,
+            formattedCreatedAt: PropTypes.string.isRequired,
+            publishedDate: PropTypes.string,
+            formattedPublishedDate: PropTypes.string,
           }).isRequired,
         }),
       ).isRequired,
@@ -60,7 +64,7 @@ export default PaginatedBlog;
 
 export const query = graphql`
   query PaginatedBlogQuery($postsPerPage: Int!, $skip: Int!) {
-    allContentfulBlogPost(limit: $postsPerPage, skip: $skip, sort: { order: DESC, fields: publishedDate }) {
+    allContentfulBlogPost(limit: $postsPerPage, skip: $skip, sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
           id
@@ -69,6 +73,8 @@ export const query = graphql`
           summary {
             text: summary
           }
+          createdAt
+          formattedCreatedAt: createdAt(formatString: "MMMM, DD YYYY", locale: "en_GB")
           publishedDate
           formattedPublishedDate: publishedDate(formatString: "MMMM, DD YYYY", locale: "en_GB")
         }

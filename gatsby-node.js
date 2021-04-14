@@ -13,7 +13,7 @@ exports.createPages = async ({ actions, graphql }) => {
     data: { allContentfulBlogPost: posts },
   } = await graphql(`
     query PaginatedBlogPosts {
-      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+      allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
         totalCount
         edges {
           node {
