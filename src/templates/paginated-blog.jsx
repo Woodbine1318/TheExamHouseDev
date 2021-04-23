@@ -8,6 +8,7 @@ import SEO from '../components/SEO';
 import { PaginationNav, PaginationLink, PageSelector } from '../components/styles/PaginationNav';
 
 const PaginatedBlog = ({
+  path,
   pageContext: { previousPage, nextPage, totalPages, currentPage },
   data: { allContentfulBlogPost: posts },
 }) => {
@@ -17,7 +18,7 @@ const PaginatedBlog = ({
 
   return (
     <Layout>
-      <SEO title="Exam Blog" />
+      <SEO title="Exam Blog" canonicalPath={path} />
 
       <StyledNav>
         {posts.edges.map(({ node: post }) => (
@@ -51,6 +52,7 @@ const PaginatedBlog = ({
 };
 
 PaginatedBlog.propTypes = {
+  path: PropTypes.string.isRequired,
   pageContext: PropTypes.shape({
     totalPages: PropTypes.number,
     currentPage: PropTypes.number,

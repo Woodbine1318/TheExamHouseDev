@@ -6,9 +6,9 @@ import SEO from '../components/SEO';
 import ContentWrapper from '../components/styles/ContentWrapper';
 import RichTextRenderer from '../components/RichTextRenderer';
 
-const ContentfulStandalonePage = ({ data: { contentfulStandalonePage: page } }) => (
+const ContentfulStandalonePage = ({ path, data: { contentfulStandalonePage: page } }) => (
   <Layout>
-    <SEO title={page.title} description={page.summary.text} />
+    <SEO title={page.title} description={page.summary.text} canonicalPath={path} />
 
     <h1 className="title">{page.title}</h1>
 
@@ -19,6 +19,7 @@ const ContentfulStandalonePage = ({ data: { contentfulStandalonePage: page } }) 
 );
 
 ContentfulStandalonePage.propTypes = {
+  path: PropTypes.string.isRequired,
   data: PropTypes.shape({
     contentfulStandalonePage: PropTypes.shape({
       id: PropTypes.string.isRequired,
