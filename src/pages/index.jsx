@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import PrimaryLink from '../components/styles/PrimaryLink';
+import PhoneIcon from '../images/icons/phone.svg';
 
 const IndexPage = ({
   path,
@@ -20,11 +22,14 @@ const IndexPage = ({
 
     <p>
       Telephone:&nbsp;
-      <a href={`tel:${contactInfo.phone}`} aria-label="Call us">
+      <PrimaryLink href={`tel:${contactInfo.phone}`} aria-label="Call us">
+        <PhoneIcon />
         {contactInfo.phone}
-      </a>
+      </PrimaryLink>
       &nbsp; Email:
-      <a href={`mailto:${contactInfo.email}`}> {contactInfo.email}</a>
+      <PrimaryLink reversed href={`mailto:${contactInfo.email}`}>
+        {contactInfo.email}
+      </PrimaryLink>
     </p>
 
     <h1>The leading private candidate exam centre across the subjects and exam boards</h1>
