@@ -7,6 +7,7 @@ import RichTextRenderer from '../components/RichTextRenderer';
 import ContentWrapper from '../components/styles/ContentWrapper';
 
 const ContentfulTuitionCentre = ({
+  path,
   data: {
     site: {
       siteMetadata: { contactInfo },
@@ -15,7 +16,7 @@ const ContentfulTuitionCentre = ({
   },
 }) => (
   <Layout>
-    <SEO title={centre.name} description={centre.summary.text} canonicalPath={`/${centre.slug}`} />
+    <SEO title={centre.name} description={centre.summary.text} canonicalPath={path} />
 
     <ContentWrapper>
       <h1 className="title">{centre.name}</h1>
@@ -35,6 +36,7 @@ const ContentfulTuitionCentre = ({
 );
 
 ContentfulTuitionCentre.propTypes = {
+  path: PropTypes.string.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

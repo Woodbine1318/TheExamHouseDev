@@ -8,14 +8,15 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
 const IndexPage = ({
+  path,
   data: {
     site: {
-      siteMetadata: { contactInfo, socialMedia, links },
+      siteMetadata: { contactInfo, socialMedia },
     },
   },
 }) => (
   <Layout>
-    <SEO title="GCSE & A Level Exam Centre" />
+    <SEO title="GCSE & A Level Exam Centre" canonicalPath={path} />
 
     <p>
       Telephone:&nbsp;
@@ -236,6 +237,7 @@ const IndexPage = ({
 );
 
 IndexPage.propTypes = {
+  path: PropTypes.string.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

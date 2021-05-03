@@ -10,6 +10,7 @@ import ContentWrapper from '../components/styles/ContentWrapper';
 import { PaginationNav, PaginationLink } from '../components/styles/PaginationNav';
 
 const ContentfulBlogPost = ({
+  path,
   pageContext: { next, previous },
   data: {
     site: { siteMetadata: metadata },
@@ -20,7 +21,7 @@ const ContentfulBlogPost = ({
     <SEO
       title={post.title}
       description={post.summary?.text}
-      canonicalPath={`/blog/${post.slug}`}
+      canonicalPath={path}
       og={{ type: 'article', published_time: post.publishedDate || post.createdAt, tags: post.tags || [] }}
     />
 
@@ -59,6 +60,7 @@ const ContentfulBlogPost = ({
 );
 
 ContentfulBlogPost.propTypes = {
+  path: PropTypes.string.isRequired,
   pageContext: PropTypes.shape({
     next: PropTypes.shape({
       slug: PropTypes.string.isRequired,
