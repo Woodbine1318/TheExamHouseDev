@@ -43,7 +43,7 @@ const IndexPage = ({
       <b>
         The Exam House <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A level Exam Centre
       </b>
-      &nbsp; or pupils and private candidates. Including access arrangements. Alongside our exam tutors.
+      &nbsp; for pupils and private candidates. Including access arrangements. Alongside our exam tutors.
     </p>
 
     <ul className="list-bare">
