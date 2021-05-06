@@ -60,11 +60,6 @@ const Header = () => {
           </li>
 
           <li>
-            <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A level Exams Centre, Including
-            Private Candidates
-          </li>
-
-          <li>
             <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
               <FeatherIcon icon="linkedin" aria-hidden />
             </a>
@@ -177,7 +172,6 @@ const MobileMenu = styled.details`
 const ExtendedNavigation = styled.ul`
   display: none;
   flex: 1 1 0;
-  grid-template-columns: repeat(3, auto);
   justify-content: space-between;
   align-items: center;
   padding-left: 2.4rem;
@@ -185,7 +179,12 @@ const ExtendedNavigation = styled.ul`
   list-style-type: none;
   font-size: 1.4rem;
 
+  & li {
+    margin: 0;
+  }
+
   @media (min-width: 768px) {
-    display: grid;
+    display: flex;
+    padding-top: 0.4rem;
   }
 `;
