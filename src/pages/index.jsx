@@ -52,7 +52,7 @@ const IndexPage = ({
       &nbsp; for pupils and private candidates. Including access arrangements. Alongside our exam tutors.
     </p>
 
-    <ul className="list-bare">
+    <ul>
       <li>
         AQA <abbr title="General Certificate of Secondary Education">GCSE</abbr> & A Level exam centre
       </li>
@@ -116,7 +116,7 @@ const IndexPage = ({
     />
 
     <h2>
-      Our <Link to="/tuition-centres">Tuition & Exam Centres</Link>
+      <Link to="/tuition-centres">Our Tuition & Exam Centres</Link>
     </h2>
 
     <HalfColumns>
@@ -140,15 +140,12 @@ const IndexPage = ({
     </p>
 
     <p>
-      We also bring&nbsp;
-      <b>
-        fast <abbr title="General Certificate of Secondary Education">GCSE</abbr> and A levels
-      </b>
-      &nbsp; along with <b>exam centre</b> services to pupils and <b>outside candidates</b>.
+      We also bring&nbsp; fast <abbr title="General Certificate of Secondary Education">GCSE</abbr> and A levels &nbsp;
+      along with exam centre services to pupils and outside candidates.
     </p>
 
     <nav>
-      <ul className="list-bare">
+      <ul>
         <li>
           <Link to="/fast-gcse-courses">
             Fast <abbr title="General Certificate of Secondary Education">GCSE</abbr> Courses
@@ -184,9 +181,6 @@ const IndexPage = ({
 
       <p>
         A short piece on <Link to="/blog/why-we-have-exams">why we have exams</Link>
-      </p>
-      <p>
-        Follow us on <a href={socialMedia.linkedin}>Linkedin</a>
       </p>
     </nav>
 
@@ -323,7 +317,7 @@ const ImageGrid = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin: 8rem 0;
+  margin: 4rem 0 8rem;
 
   & > .gatsby-image-wrapper:not(:last-of-type) {
     margin-bottom: 3.2rem;
@@ -333,7 +327,7 @@ const ImageGrid = styled.div`
     flex-direction: ${(props) => (props.column ? 'column' : 'row')};
 
     & > .gatsby-image-wrapper:not(:last-of-type) {
-      margin-bottom: ${(props) => (props.column ? '3.2rem' : '0')};
+      margin-bottom: ${(props) => (props.column ? '6rem' : '0')};
       margin-right: ${(props) => (props.column ? 0 : '3.2rem')};
     }
   }

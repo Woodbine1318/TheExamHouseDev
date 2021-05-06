@@ -13,7 +13,7 @@ module.exports = {
     contactInfo: {
       phone: '02071128105',
       email: 'exams@theexamhouse.co.uk',
-      address: 'BYT Tuition Centre, 128 Chesham High Street, Buckinghamshire HP5 1EB NCN Centre number 52230',
+      address: 'BYT Tuition Centre, 128 Chesham High Street, Buckinghamshire, HP5 1EB NCN Centre number 52230',
     },
     socialMedia: {
       linkedin: 'https://www.linkedin.com/company/the-exam-house/',
