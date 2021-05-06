@@ -133,6 +133,11 @@ const MobileMenu = styled.details`
     z-index: var(--z-index-menu-close);
   }
 
+  & summary::-webkit-details-marker {
+    opacity: 0;
+    margin-top: -0.4rem;
+  }
+
   & .close-btn {
     display: none;
   }
