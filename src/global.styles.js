@@ -255,4 +255,8 @@ export const GlobalStyles = createGlobalStyle`
       margin-bottom: 1rem;
     }
   }
+
+  & abbr {
+    text-decoration: none;
+  }
 `;
