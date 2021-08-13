@@ -12,6 +12,8 @@ module.exports = {
     siteDomain: 'theexamhouse.co.uk',
     contactInfo: {
       phone: '02071128105',
+      whatsappLink: 'https://wa.me/447979958162',
+      whatsapp: '07979958162',
       email: 'exams@theexamhouse.co.uk',
       address: 'BYT Tuition Centre, 128 Chesham High Street, Buckinghamshire, HP5 1EB NCN Centre number 52230',
     },

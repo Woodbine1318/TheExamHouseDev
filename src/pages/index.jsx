@@ -13,7 +13,7 @@ const IndexPage = ({
   path,
   data: {
     site: {
-      siteMetadata: { contactInfo, socialMedia },
+      siteMetadata: { contactInfo },
     },
   },
 }) => (
@@ -29,6 +29,14 @@ const IndexPage = ({
       &nbsp; Email:
       <PrimaryLink reversed href={`mailto:${contactInfo.email}`}>
         {contactInfo.email}
+      </PrimaryLink>
+    </p>
+
+    <p>
+      WhatsApp Messenger:&nbsp;
+      <PrimaryLink href={`${contactInfo.whatsappLink}`} aria-label="Text us">
+        <PhoneIcon />
+        {contactInfo.whatsapp}
       </PrimaryLink>
     </p>
 
@@ -242,6 +250,8 @@ IndexPage.propTypes = {
       siteMetadata: PropTypes.shape({
         contactInfo: PropTypes.shape({
           phone: PropTypes.string,
+          whatsapp: PropTypes.string,
+          whatsappLink: PropTypes.string,
           email: PropTypes.string,
           address: PropTypes.string,
         }),
@@ -266,6 +276,8 @@ export const query = graphql`
       siteMetadata {
         contactInfo {
           phone
+          whatsapp
+          whatsappLink
           email
           address
         }
