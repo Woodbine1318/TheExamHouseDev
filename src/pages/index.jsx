@@ -34,7 +34,7 @@ const IndexPage = ({
 
     <p>
       WhatsApp Messenger:&nbsp;
-      <PrimaryLink href={`${contactInfo.whatsappLink}`} aria-label="Text us">
+      <PrimaryLink block href={`${contactInfo.whatsappLink}`} aria-label="Text us">
         <PhoneIcon />
         {contactInfo.whatsapp}
       </PrimaryLink>

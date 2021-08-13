@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const PrimaryLink = styled.a`
   position: relative;
+  display: ${(props) => (props.block ? 'inline-block' : 'inline')};
   font-weight: bold;
   color: var(--color-white);
   padding: 0.8rem;
