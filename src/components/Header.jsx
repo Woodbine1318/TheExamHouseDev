@@ -28,10 +28,6 @@ const Header = () => {
         </Logo>
 
         <CompactNavigation>
-          <Link to="/search" aria-label="Search">
-            <FeatherIcon icon="search" aria-hidden />
-          </Link>
-
           <MobileMenu>
             <summary aria-label="Same site links">
               <FeatherIcon icon="menu" className="open-btn" aria-hidden />
