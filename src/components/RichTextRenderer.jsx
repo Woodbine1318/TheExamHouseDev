@@ -58,6 +58,18 @@ const richTextConfig = (siteDomain) => ({
         );
       }
 
+      if (target.__typename === 'ContentfulVideoEmbed') {
+        const youtubeEmbed = youtubeEmbedUrl(target.url);
+        if (youtubeEmbed)
+          return (
+            <p>
+              <IFrameWrapper>
+                <iframe src={youtubeEmbed} title={target.title} />
+              </IFrameWrapper>
+            </p>
+          );
+      }
+
       return null;
     },
     [INLINES.EMBEDDED_ENTRY]: ({ data: { target } }) => {

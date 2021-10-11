@@ -14,7 +14,7 @@ const youtubeEmbedUrl = (originalUrl) => {
   // Fallback for video url
   if (originalUrl.includes('/watch?v=')) {
     const start = originalUrl.indexOf('?');
-    const params = URLSearchParams(originalUrl.slice(start + 1));
+    const params = new URLSearchParams(originalUrl.slice(start + 1));
     const videoId = params.get('v');
 
     return `${embedTemplate}${videoId}`;
