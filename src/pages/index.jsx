@@ -26,17 +26,17 @@ const IndexPage = ({
         <PhoneIcon />
         {contactInfo.phone}
       </PrimaryLink>
-      &nbsp; Email:
-      <PrimaryLink reversed href={`mailto:${contactInfo.email}`}>
-        {contactInfo.email}
+      Exam Centre Mobile:&nbsp;
+      <PrimaryLink block href={`${contactInfo.whatsappLink}`} aria-label="Text us">
+        <PhoneIcon />
+        {contactInfo.whatsapp}
       </PrimaryLink>
     </p>
 
     <p>
-      WhatsApp Messenger:&nbsp;
-      <PrimaryLink block href={`${contactInfo.whatsappLink}`} aria-label="Text us">
-        <PhoneIcon />
-        {contactInfo.whatsapp}
+      &nbsp; Email:
+      <PrimaryLink reversed href={`mailto:${contactInfo.email}`}>
+        {contactInfo.email}
       </PrimaryLink>
     </p>
 

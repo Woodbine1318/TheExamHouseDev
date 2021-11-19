@@ -11,7 +11,7 @@ module.exports = {
     siteUrl: 'https://theexamhouse.co.uk',
     siteDomain: 'theexamhouse.co.uk',
     contactInfo: {
-      phone: '02071128105',
+      phone: '01494911338',
       whatsappLink: 'https://wa.me/447979958162',
       whatsapp: '07979958162',
       email: 'exams@theexamhouse.co.uk',
