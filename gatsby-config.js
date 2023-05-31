@@ -15,7 +15,7 @@ module.exports = {
       whatsappLink: 'https://wa.me/447979958162',
       whatsapp: '07979958162',
       email: 'exams@theexamhouse.co.uk',
-      address: 'BYT Tuition Centre, 128 Chesham High Street, Buckinghamshire, HP5 1EB NCN Centre number 52230',
+      address: 'Maidenhead Tutorial College, 69 Maidenhead High Street, SL6 1LX NCN Centre number 51534',
     },
     socialMedia: {
       linkedin: 'https://www.linkedin.com/company/the-exam-house/',
